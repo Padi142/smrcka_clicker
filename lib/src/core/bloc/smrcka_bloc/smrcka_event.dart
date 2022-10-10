@@ -21,3 +21,13 @@ class PetEvent extends SmrckaEvent {
   @override
   List<Object> get props => [];
 }
+
+class ChangeSkin extends SmrckaEvent {
+  final PetModel pet;
+  final String imgSkin;
+  final String petSkin;
+  const ChangeSkin(this.pet, this.imgSkin, this.petSkin);
+
+  @override
+  List<Object> get props => [];
+}

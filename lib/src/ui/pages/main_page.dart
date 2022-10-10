@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smrcka_clicker/src/core/bloc/smrcka_bloc/smrcka_bloc.dart';
 import 'package:smrcka_clicker/src/core/bloc/smrcka_bloc/smrcka_state.dart';
 import 'package:smrcka_clicker/src/core/model/pet_model.dart';
+import 'package:smrcka_clicker/src/ui/components/skin_changer.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -72,6 +73,10 @@ class PetShowPage extends StatelessWidget {
                 width: 250,
               )),
         ),
+        const SizedBox(
+          height: 40,
+        ),
+        SkinChanger(pet: pet),
       ],
     );
   }
@@ -88,7 +93,7 @@ class PetPage extends StatelessWidget {
       children: [
         Center(
           child: Image.asset(
-            "assets/images/pat.gif",
+            pet.petImage,
             height: 350,
             width: 250,
             scale: 0.6,
