@@ -51,7 +51,8 @@ class PetShowPage extends StatelessWidget {
           height: 20,
         ),
         const Text(
-          "klikni na svého oblíbeného přednášejícího: ",
+          "  klikni na svého oblíbeného přednášejícího: ",
+          textAlign: TextAlign.center,
           style: TextStyle(fontSize: 28, color: Colors.white),
         ),
         const SizedBox(
