@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smrcka_clicker/src/core/bloc/smrcka_bloc/smrcka_state.dart';
 import 'package:smrcka_clicker/src/core/model/pet_model.dart';
 
@@ -14,16 +15,29 @@ class SmrckaBloc extends Bloc<SmrckaEvent, SmrckaState> {
 
   Future<void> _onInitialEvent(
       InitialEvent event, Emitter<SmrckaState> emit) async {
-    emit(const SmrckaState.loaded(PetModel(
-        pets: 0,
+    final prefs = await SharedPreferences.getInstance();
+    int pets = 0;
+
+    int? savedPets = prefs.getInt("pets");
+    if (savedPets != null) {
+      pets = savedPets;
+    }
+
+    emit(SmrckaState.loaded(PetModel(
+        pets: pets,
         image: "assets/images/smrcka.jpg",
         petImage: "assets/images/pat.gif",
         name: "Smrcka")));
   }
 
   Future<void> _onPet(PetEvent event, Emitter<SmrckaState> emit) async {
+    final prefs = await SharedPreferences.getInstance();
+
     emit(SmrckaState.pet(event.pet));
+
     await Future.delayed(const Duration(seconds: 2));
+
+    await prefs.setInt("pets", event.pet.pets + 1);
     emit(SmrckaState.loaded(event.pet.copyWith(pets: event.pet.pets + 1)));
   }
 
