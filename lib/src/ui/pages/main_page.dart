@@ -4,6 +4,7 @@ import 'package:smrcka_clicker/src/core/bloc/smrcka_bloc/smrcka_bloc.dart';
 import 'package:smrcka_clicker/src/core/bloc/smrcka_bloc/smrcka_state.dart';
 import 'package:smrcka_clicker/src/core/model/pet_model.dart';
 import 'package:smrcka_clicker/src/ui/components/skin_changer.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -78,6 +79,29 @@ class PetShowPage extends StatelessWidget {
           height: 40,
         ),
         SkinChanger(pet: pet),
+        const SizedBox(
+          height: 40,
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Align(
+            alignment: Alignment.centerRight,
+            child: SizedBox(
+              height: 50,
+              width: 50,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(primary: Colors.grey),
+                onPressed: (() async {
+                  await launchUrl(
+                      Uri.parse("https://github.com/Padi142/smrcka_clicker"));
+                }),
+                child: Image.network(
+                  "https://cdn-icons-png.flaticon.com/512/25/25231.png",
+                ),
+              ),
+            ),
+          ),
+        )
       ],
     );
   }

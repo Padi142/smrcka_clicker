@@ -1,11 +1,11 @@
 {
-    "name": "smrcka_clicker",
-    "short_name": "smrcka_clicker",
+    "name": "Smrcka clicker",
+    "short_name": "Smrcka clicker",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Smrcka clicker!",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
