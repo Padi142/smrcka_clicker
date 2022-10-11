@@ -64,9 +64,21 @@ class SkinChanger extends StatelessWidget {
               ),
               SkinButton(
                 pet: pet,
+                petImg: "assets/images/smrckasuspat.gif",
+                skinImg: "assets/images/smrcUS.jpg",
+                skinLabel: "Sussy Smrčka",
+              ),
+              SkinButton(
+                pet: pet,
                 petImg: "assets/images/cloudsmrckapat.gif",
                 skinImg: "assets/images/cloudsmrcka.jpg",
                 skinLabel: "Cloud rapper Smrčka",
+              ),
+              SkinButton(
+                pet: pet,
+                petImg: "assets/images/berniesmrckapat.gif",
+                skinImg: "assets/images/berniesmrcka.jpg",
+                skinLabel: "Bernie Smrčka",
               ),
             ],
           ),
