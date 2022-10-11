@@ -38,7 +38,7 @@ class SmrckaBloc extends Bloc<SmrckaEvent, SmrckaState> {
 
     emit(SmrckaState.pet(event.pet));
 
-    final int troll = rnd.nextInt(100);
+    final int troll = rnd.nextInt(250);
     if (troll <= 4) {
       emit(SmrckaState.troll(event.pet));
 
