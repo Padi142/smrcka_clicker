@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smrcka_clicker/src/core/bloc/smrcka_bloc/smrcka_bloc.dart';
@@ -31,6 +32,8 @@ class _MainPageState extends State<MainPage> {
             return PetPage(
               pet: pet,
             );
+          }, troll: (smrcka) {
+            return const TrollBody();
           }, orElse: (() {
             return const Loading();
           }));
@@ -126,6 +129,76 @@ class PetPage extends StatelessWidget {
         ),
       ],
     );
+  }
+}
+
+class TrollBody extends StatefulWidget {
+  const TrollBody({super.key});
+
+  @override
+  State<TrollBody> createState() => _TrollBodyState();
+}
+
+class _TrollBodyState extends State<TrollBody>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  @override
+  void initState() {
+    super.initState();
+
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 14),
+      upperBound: 1,
+    );
+    _controller.forward();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Center(
+          child: RotationTransition(
+            turns: Tween(begin: 0.0, end: 10.0).animate(_controller),
+            child: Image.asset("assets/images/smrckatf.png"),
+          ),
+        ),
+        const SizedBox(
+          height: 30,
+        ),
+        FadeIn(
+          animate: true,
+          duration: const Duration(seconds: 2),
+          delay: const Duration(seconds: 2),
+          child: const Text(
+            "Byl jsi vyšotkován",
+            style: TextStyle(
+                color: Colors.white, fontSize: 29, fontWeight: FontWeight.bold),
+          ),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        FadeIn(
+          animate: true,
+          duration: const Duration(seconds: 2),
+          delay: const Duration(seconds: 6),
+          child: const Text(
+            "-10 bodů :PepeLa:",
+            style: TextStyle(
+                color: Colors.white, fontSize: 35, fontWeight: FontWeight.bold),
+          ),
+        )
+      ],
+    );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
   }
 }
 

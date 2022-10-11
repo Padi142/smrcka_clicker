@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -32,13 +34,22 @@ class SmrckaBloc extends Bloc<SmrckaEvent, SmrckaState> {
 
   Future<void> _onPet(PetEvent event, Emitter<SmrckaState> emit) async {
     final prefs = await SharedPreferences.getInstance();
+    Random rnd = Random();
 
     emit(SmrckaState.pet(event.pet));
 
-    await Future.delayed(const Duration(seconds: 2));
+    final int troll = rnd.nextInt(100);
+    if (troll <= 4) {
+      emit(SmrckaState.troll(event.pet));
 
-    await prefs.setInt("pets", event.pet.pets + 1);
-    emit(SmrckaState.loaded(event.pet.copyWith(pets: event.pet.pets + 1)));
+      await Future.delayed(const Duration(seconds: 17));
+      emit(SmrckaState.loaded(event.pet.copyWith(pets: event.pet.pets - 10)));
+    } else {
+      await Future.delayed(const Duration(seconds: 2));
+
+      await prefs.setInt("pets", event.pet.pets + 1);
+      emit(SmrckaState.loaded(event.pet.copyWith(pets: event.pet.pets + 1)));
+    }
   }
 
   Future<void> _onChangeSkin(

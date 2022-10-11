@@ -10,4 +10,5 @@ class SmrckaState with _$SmrckaState {
   const factory SmrckaState.error() = Error;
   const factory SmrckaState.loaded(PetModel smrcka) = Loaded;
   const factory SmrckaState.pet(PetModel smrcka) = Pet;
+  const factory SmrckaState.troll(PetModel smrcka) = Troll;
 }

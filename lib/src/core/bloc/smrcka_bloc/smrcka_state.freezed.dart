@@ -22,6 +22,7 @@ mixin _$SmrckaState {
     required TResult Function() error,
     required TResult Function(PetModel smrcka) loaded,
     required TResult Function(PetModel smrcka) pet,
+    required TResult Function(PetModel smrcka) troll,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$SmrckaState {
     TResult Function()? error,
     TResult Function(PetModel smrcka)? loaded,
     TResult Function(PetModel smrcka)? pet,
+    TResult Function(PetModel smrcka)? troll,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$SmrckaState {
     TResult Function()? error,
     TResult Function(PetModel smrcka)? loaded,
     TResult Function(PetModel smrcka)? pet,
+    TResult Function(PetModel smrcka)? troll,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$SmrckaState {
     required TResult Function(Error value) error,
     required TResult Function(Loaded value) loaded,
     required TResult Function(Pet value) pet,
+    required TResult Function(Troll value) troll,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$SmrckaState {
     TResult Function(Error value)? error,
     TResult Function(Loaded value)? loaded,
     TResult Function(Pet value)? pet,
+    TResult Function(Troll value)? troll,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$SmrckaState {
     TResult Function(Error value)? error,
     TResult Function(Loaded value)? loaded,
     TResult Function(Pet value)? pet,
+    TResult Function(Troll value)? troll,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -126,6 +132,7 @@ class _$Initial implements Initial {
     required TResult Function() error,
     required TResult Function(PetModel smrcka) loaded,
     required TResult Function(PetModel smrcka) pet,
+    required TResult Function(PetModel smrcka) troll,
   }) {
     return initial();
   }
@@ -137,6 +144,7 @@ class _$Initial implements Initial {
     TResult Function()? error,
     TResult Function(PetModel smrcka)? loaded,
     TResult Function(PetModel smrcka)? pet,
+    TResult Function(PetModel smrcka)? troll,
   }) {
     return initial?.call();
   }
@@ -148,6 +156,7 @@ class _$Initial implements Initial {
     TResult Function()? error,
     TResult Function(PetModel smrcka)? loaded,
     TResult Function(PetModel smrcka)? pet,
+    TResult Function(PetModel smrcka)? troll,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -163,6 +172,7 @@ class _$Initial implements Initial {
     required TResult Function(Error value) error,
     required TResult Function(Loaded value) loaded,
     required TResult Function(Pet value) pet,
+    required TResult Function(Troll value) troll,
   }) {
     return initial(this);
   }
@@ -174,6 +184,7 @@ class _$Initial implements Initial {
     TResult Function(Error value)? error,
     TResult Function(Loaded value)? loaded,
     TResult Function(Pet value)? pet,
+    TResult Function(Troll value)? troll,
   }) {
     return initial?.call(this);
   }
@@ -185,6 +196,7 @@ class _$Initial implements Initial {
     TResult Function(Error value)? error,
     TResult Function(Loaded value)? loaded,
     TResult Function(Pet value)? pet,
+    TResult Function(Troll value)? troll,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -240,6 +252,7 @@ class _$Error implements Error {
     required TResult Function() error,
     required TResult Function(PetModel smrcka) loaded,
     required TResult Function(PetModel smrcka) pet,
+    required TResult Function(PetModel smrcka) troll,
   }) {
     return error();
   }
@@ -251,6 +264,7 @@ class _$Error implements Error {
     TResult Function()? error,
     TResult Function(PetModel smrcka)? loaded,
     TResult Function(PetModel smrcka)? pet,
+    TResult Function(PetModel smrcka)? troll,
   }) {
     return error?.call();
   }
@@ -262,6 +276,7 @@ class _$Error implements Error {
     TResult Function()? error,
     TResult Function(PetModel smrcka)? loaded,
     TResult Function(PetModel smrcka)? pet,
+    TResult Function(PetModel smrcka)? troll,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -277,6 +292,7 @@ class _$Error implements Error {
     required TResult Function(Error value) error,
     required TResult Function(Loaded value) loaded,
     required TResult Function(Pet value) pet,
+    required TResult Function(Troll value) troll,
   }) {
     return error(this);
   }
@@ -288,6 +304,7 @@ class _$Error implements Error {
     TResult Function(Error value)? error,
     TResult Function(Loaded value)? loaded,
     TResult Function(Pet value)? pet,
+    TResult Function(Troll value)? troll,
   }) {
     return error?.call(this);
   }
@@ -299,6 +316,7 @@ class _$Error implements Error {
     TResult Function(Error value)? error,
     TResult Function(Loaded value)? loaded,
     TResult Function(Pet value)? pet,
+    TResult Function(Troll value)? troll,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -378,6 +396,7 @@ class _$Loaded implements Loaded {
     required TResult Function() error,
     required TResult Function(PetModel smrcka) loaded,
     required TResult Function(PetModel smrcka) pet,
+    required TResult Function(PetModel smrcka) troll,
   }) {
     return loaded(smrcka);
   }
@@ -389,6 +408,7 @@ class _$Loaded implements Loaded {
     TResult Function()? error,
     TResult Function(PetModel smrcka)? loaded,
     TResult Function(PetModel smrcka)? pet,
+    TResult Function(PetModel smrcka)? troll,
   }) {
     return loaded?.call(smrcka);
   }
@@ -400,6 +420,7 @@ class _$Loaded implements Loaded {
     TResult Function()? error,
     TResult Function(PetModel smrcka)? loaded,
     TResult Function(PetModel smrcka)? pet,
+    TResult Function(PetModel smrcka)? troll,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -415,6 +436,7 @@ class _$Loaded implements Loaded {
     required TResult Function(Error value) error,
     required TResult Function(Loaded value) loaded,
     required TResult Function(Pet value) pet,
+    required TResult Function(Troll value) troll,
   }) {
     return loaded(this);
   }
@@ -426,6 +448,7 @@ class _$Loaded implements Loaded {
     TResult Function(Error value)? error,
     TResult Function(Loaded value)? loaded,
     TResult Function(Pet value)? pet,
+    TResult Function(Troll value)? troll,
   }) {
     return loaded?.call(this);
   }
@@ -437,6 +460,7 @@ class _$Loaded implements Loaded {
     TResult Function(Error value)? error,
     TResult Function(Loaded value)? loaded,
     TResult Function(Pet value)? pet,
+    TResult Function(Troll value)? troll,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -521,6 +545,7 @@ class _$Pet implements Pet {
     required TResult Function() error,
     required TResult Function(PetModel smrcka) loaded,
     required TResult Function(PetModel smrcka) pet,
+    required TResult Function(PetModel smrcka) troll,
   }) {
     return pet(smrcka);
   }
@@ -532,6 +557,7 @@ class _$Pet implements Pet {
     TResult Function()? error,
     TResult Function(PetModel smrcka)? loaded,
     TResult Function(PetModel smrcka)? pet,
+    TResult Function(PetModel smrcka)? troll,
   }) {
     return pet?.call(smrcka);
   }
@@ -543,6 +569,7 @@ class _$Pet implements Pet {
     TResult Function()? error,
     TResult Function(PetModel smrcka)? loaded,
     TResult Function(PetModel smrcka)? pet,
+    TResult Function(PetModel smrcka)? troll,
     required TResult orElse(),
   }) {
     if (pet != null) {
@@ -558,6 +585,7 @@ class _$Pet implements Pet {
     required TResult Function(Error value) error,
     required TResult Function(Loaded value) loaded,
     required TResult Function(Pet value) pet,
+    required TResult Function(Troll value) troll,
   }) {
     return pet(this);
   }
@@ -569,6 +597,7 @@ class _$Pet implements Pet {
     TResult Function(Error value)? error,
     TResult Function(Loaded value)? loaded,
     TResult Function(Pet value)? pet,
+    TResult Function(Troll value)? troll,
   }) {
     return pet?.call(this);
   }
@@ -580,6 +609,7 @@ class _$Pet implements Pet {
     TResult Function(Error value)? error,
     TResult Function(Loaded value)? loaded,
     TResult Function(Pet value)? pet,
+    TResult Function(Troll value)? troll,
     required TResult orElse(),
   }) {
     if (pet != null) {
@@ -595,4 +625,152 @@ abstract class Pet implements SmrckaState {
   PetModel get smrcka;
   @JsonKey(ignore: true)
   _$$PetCopyWith<_$Pet> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$TrollCopyWith<$Res> {
+  factory _$$TrollCopyWith(_$Troll value, $Res Function(_$Troll) then) =
+      __$$TrollCopyWithImpl<$Res>;
+  $Res call({PetModel smrcka});
+}
+
+/// @nodoc
+class __$$TrollCopyWithImpl<$Res> extends _$SmrckaStateCopyWithImpl<$Res>
+    implements _$$TrollCopyWith<$Res> {
+  __$$TrollCopyWithImpl(_$Troll _value, $Res Function(_$Troll) _then)
+      : super(_value, (v) => _then(v as _$Troll));
+
+  @override
+  _$Troll get _value => super._value as _$Troll;
+
+  @override
+  $Res call({
+    Object? smrcka = freezed,
+  }) {
+    return _then(_$Troll(
+      smrcka == freezed
+          ? _value.smrcka
+          : smrcka // ignore: cast_nullable_to_non_nullable
+              as PetModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$Troll implements Troll {
+  const _$Troll(this.smrcka);
+
+  @override
+  final PetModel smrcka;
+
+  @override
+  String toString() {
+    return 'SmrckaState.troll(smrcka: $smrcka)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$Troll &&
+            const DeepCollectionEquality().equals(other.smrcka, smrcka));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(smrcka));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$TrollCopyWith<_$Troll> get copyWith =>
+      __$$TrollCopyWithImpl<_$Troll>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() error,
+    required TResult Function(PetModel smrcka) loaded,
+    required TResult Function(PetModel smrcka) pet,
+    required TResult Function(PetModel smrcka) troll,
+  }) {
+    return troll(smrcka);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? error,
+    TResult Function(PetModel smrcka)? loaded,
+    TResult Function(PetModel smrcka)? pet,
+    TResult Function(PetModel smrcka)? troll,
+  }) {
+    return troll?.call(smrcka);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? error,
+    TResult Function(PetModel smrcka)? loaded,
+    TResult Function(PetModel smrcka)? pet,
+    TResult Function(PetModel smrcka)? troll,
+    required TResult orElse(),
+  }) {
+    if (troll != null) {
+      return troll(smrcka);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Error value) error,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(Pet value) pet,
+    required TResult Function(Troll value) troll,
+  }) {
+    return troll(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Error value)? error,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Pet value)? pet,
+    TResult Function(Troll value)? troll,
+  }) {
+    return troll?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Error value)? error,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Pet value)? pet,
+    TResult Function(Troll value)? troll,
+    required TResult orElse(),
+  }) {
+    if (troll != null) {
+      return troll(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Troll implements SmrckaState {
+  const factory Troll(final PetModel smrcka) = _$Troll;
+
+  PetModel get smrcka;
+  @JsonKey(ignore: true)
+  _$$TrollCopyWith<_$Troll> get copyWith => throw _privateConstructorUsedError;
 }
