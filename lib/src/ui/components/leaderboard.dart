@@ -19,11 +19,11 @@ class _LeaderboardState extends State<Leaderboard> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<LeaderboardBloc>(context).add(const LoadEvent());
   }
 
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<LeaderboardBloc>(context).add(const LoadEvent());
     return BlocBuilder<LeaderboardBloc, LeaderboardState>(
       builder: ((context, state) {
         return state.maybeWhen(loaded: ((username, sortedBoard, myPosition) {
