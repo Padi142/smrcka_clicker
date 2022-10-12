@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:smrcka_clicker/src/core/bloc/leaderboard/leaderboard_bloc.dart';
 import 'package:smrcka_clicker/src/core/bloc/smrcka_bloc/smrcka_bloc.dart';
 
 import 'package:smrcka_clicker/constants.dart' as constants;
@@ -18,6 +19,9 @@ class SmrckaClickerApp extends StatelessWidget {
         providers: [
           BlocProvider<SmrckaBloc>(
             create: (BuildContext context) => SmrckaBloc(),
+          ),
+          BlocProvider<LeaderboardBloc>(
+            create: (BuildContext context) => LeaderboardBloc(),
           ),
         ],
         child: MaterialApp(

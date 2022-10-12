@@ -1,9 +1,12 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smrcka_clicker/src/core/bloc/leaderboard/leaderboard_bloc.dart';
 import 'package:smrcka_clicker/src/core/bloc/smrcka_bloc/smrcka_bloc.dart';
 import 'package:smrcka_clicker/src/core/bloc/smrcka_bloc/smrcka_state.dart';
 import 'package:smrcka_clicker/src/core/model/pet_model.dart';
+import 'package:smrcka_clicker/src/ui/components/leaderboard.dart';
+import 'package:smrcka_clicker/src/ui/components/loading.dart';
 import 'package:smrcka_clicker/src/ui/components/skin_changer.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -18,7 +21,7 @@ class _MainPageState extends State<MainPage> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<SmrckaBloc>(context).add(const InitialEvent());
+    BlocProvider.of<SmrckaBloc>(context).add(const SmrckaInitialEvent());
   }
 
   @override
@@ -82,6 +85,10 @@ class PetShowPage extends StatelessWidget {
           height: 40,
         ),
         SkinChanger(pet: pet),
+        const SizedBox(
+          height: 20,
+        ),
+        Leaderboard(pet: pet),
         const SizedBox(
           height: 40,
         ),
@@ -199,16 +206,5 @@ class _TrollBodyState extends State<TrollBody>
   void dispose() {
     super.dispose();
     _controller.dispose();
-  }
-}
-
-class Loading extends StatelessWidget {
-  const Loading({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: CircularProgressIndicator(),
-    );
   }
 }

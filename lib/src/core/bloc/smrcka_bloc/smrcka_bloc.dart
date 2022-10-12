@@ -5,18 +5,21 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smrcka_clicker/src/core/bloc/smrcka_bloc/smrcka_state.dart';
 import 'package:smrcka_clicker/src/core/model/pet_model.dart';
+import 'package:smrcka_clicker/src/core/provider/leaderboard_provider.dart';
 
 part 'smrcka_event.dart';
 
 class SmrckaBloc extends Bloc<SmrckaEvent, SmrckaState> {
   SmrckaBloc() : super(const SmrckaState.initial()) {
     on<PetEvent>(_onPet);
-    on<InitialEvent>(_onInitialEvent);
+    on<SmrckaInitialEvent>(_onInitialEvent);
     on<ChangeSkin>(_onChangeSkin);
   }
 
+  LeaderboardProvider leaderboardProvider = LeaderboardProvider();
+
   Future<void> _onInitialEvent(
-      InitialEvent event, Emitter<SmrckaState> emit) async {
+      SmrckaInitialEvent event, Emitter<SmrckaState> emit) async {
     final prefs = await SharedPreferences.getInstance();
     int pets = 0;
 
@@ -41,12 +44,14 @@ class SmrckaBloc extends Bloc<SmrckaEvent, SmrckaState> {
     final int troll = rnd.nextInt(250);
     if (troll <= 4) {
       emit(SmrckaState.troll(event.pet));
+      await leaderboardProvider.addSotek();
 
       await Future.delayed(const Duration(seconds: 17));
       emit(SmrckaState.loaded(event.pet.copyWith(pets: event.pet.pets - 10)));
     } else {
       await Future.delayed(const Duration(seconds: 2));
 
+      await leaderboardProvider.addScore(event.pet.pets + 1);
       await prefs.setInt("pets", event.pet.pets + 1);
       emit(SmrckaState.loaded(event.pet.copyWith(pets: event.pet.pets + 1)));
     }
