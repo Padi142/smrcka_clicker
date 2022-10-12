@@ -10,8 +10,8 @@ void main() async {
 
   //Initialize database
   await Supabase.initialize(
-      url: dotenv.env['SUPABASE_URL'],
-      anonKey: dotenv.env['SUPABASE_SECRET'],
+      url: const String.fromEnvironment('SUPABASE_URL'),
+      anonKey: const String.fromEnvironment('SUPABASE_SECRET'),
       authCallbackUrlHostname: 'login-callback', // optional
       debug: true // optional
       );

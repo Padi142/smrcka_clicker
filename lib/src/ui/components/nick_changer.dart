@@ -34,7 +34,7 @@ class _NickChangerState extends State<NickChanger> {
                 filled: true,
                 fillColor: Colors.white,
                 labelText: "Nick:",
-                labelStyle: TextStyle(color: Colors.white)),
+                labelStyle: TextStyle(color: Colors.blueAccent)),
           ),
         ),
         ElevatedButton(
