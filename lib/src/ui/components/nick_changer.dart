@@ -12,11 +12,13 @@ class NickChanger extends StatefulWidget {
 }
 
 class _NickChangerState extends State<NickChanger> {
+  bool usernameEntered = false;
   final TextEditingController _controller = TextEditingController();
   @override
   void initState() {
     if (widget.currentNick != null) {
       _controller.text = widget.currentNick!;
+      usernameEntered = true;
     }
     super.initState();
   }
@@ -37,19 +39,27 @@ class _NickChangerState extends State<NickChanger> {
                 labelStyle: TextStyle(color: Colors.blueAccent)),
           ),
         ),
-        ElevatedButton(
-            onPressed: () async {
-              if (_controller.text != "" && _controller.text.length < 25) {
-                final prefs = await SharedPreferences.getInstance();
-                prefs.setString("username", _controller.text);
-                if (widget.currentNick != null) {
-                  // ignore: use_build_context_synchronously
-                  BlocProvider.of<LeaderboardBloc>(context)
-                      .add(CreateScore(_controller.text, 0));
-                }
-              }
-            },
-            child: const Text("Uložit"))
+        usernameEntered
+            ? Text(
+                "Nick: ${widget.currentNick ?? ""}",
+                style: const TextStyle(color: Colors.white),
+              )
+            : ElevatedButton(
+                onPressed: () async {
+                  if (_controller.text != "" && _controller.text.length < 25) {
+                    final prefs = await SharedPreferences.getInstance();
+                    prefs.setString("username", _controller.text);
+                    if (widget.currentNick != null) {
+                      // ignore: use_build_context_synchronously
+                      BlocProvider.of<LeaderboardBloc>(context)
+                          .add(CreateScore(_controller.text, 0));
+                    }
+                    setState(() {
+                      usernameEntered = true;
+                    });
+                  }
+                },
+                child: const Text("Uložit"))
       ],
     );
   }

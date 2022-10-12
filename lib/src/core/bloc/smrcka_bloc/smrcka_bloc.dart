@@ -46,8 +46,8 @@ class SmrckaBloc extends Bloc<SmrckaEvent, SmrckaState> {
       emit(SmrckaState.troll(event.pet));
       await leaderboardProvider.addSotek();
 
-      await Future.delayed(const Duration(seconds: 17));
       emit(SmrckaState.loaded(event.pet.copyWith(pets: event.pet.pets - 10)));
+      await Future.delayed(const Duration(seconds: 17));
     } else {
       await Future.delayed(const Duration(seconds: 2));
 

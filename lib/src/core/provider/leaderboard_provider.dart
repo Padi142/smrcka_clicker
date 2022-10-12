@@ -12,7 +12,7 @@ class LeaderboardProvider {
         .from('leaderboard')
         .select()
         .order("clicks")
-        .limit(5)
+        .limit(15)
         .execute();
 
     if (leaderboardResponse.hasError) {
