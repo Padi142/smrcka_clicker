@@ -7,8 +7,8 @@ abstract class SmrckaEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class InitialEvent extends SmrckaEvent {
-  const InitialEvent();
+class SmrckaInitialEvent extends SmrckaEvent {
+  const SmrckaInitialEvent();
 
   @override
   List<Object> get props => [];

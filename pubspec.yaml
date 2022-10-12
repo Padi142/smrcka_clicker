@@ -23,6 +23,8 @@ dependencies:
   shared_preferences: ^2.0.15
   url_launcher: ^6.1.6
   animate_do: ^2.1.0
+  flutter_dotenv: ^5.0.2
+  supabase_flutter: ^0.3.3
 
   
 
@@ -40,3 +42,4 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+
