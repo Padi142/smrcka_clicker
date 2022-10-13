@@ -42,12 +42,14 @@ class SmrckaBloc extends Bloc<SmrckaEvent, SmrckaState> {
     emit(SmrckaState.pet(event.pet));
 
     final int troll = rnd.nextInt(250);
-    if (troll <= 4) {
+    if (troll <= 250) {
       emit(SmrckaState.troll(event.pet));
       await leaderboardProvider.addSotek();
+      await leaderboardProvider.addScore(event.pet.pets - 10);
+      await prefs.setInt("pets", event.pet.pets - 10);
 
-      emit(SmrckaState.loaded(event.pet.copyWith(pets: event.pet.pets - 10)));
       await Future.delayed(const Duration(seconds: 17));
+      emit(SmrckaState.loaded(event.pet.copyWith(pets: event.pet.pets - 10)));
     } else {
       await Future.delayed(const Duration(seconds: 2));
 
