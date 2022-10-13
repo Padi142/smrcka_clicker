@@ -50,8 +50,8 @@ class _NickChangerState extends State<NickChanger> {
                     if (_controller.text != "" &&
                         _controller.text.length < 25) {
                       final prefs = await SharedPreferences.getInstance();
-                      prefs.setString("username", _controller.text);
-                      if (widget.currentNick != null) {
+                      prefs.setString("nick", _controller.text);
+                      if (widget.currentNick == null) {
                         // ignore: use_build_context_synchronously
                         BlocProvider.of<LeaderboardBloc>(context)
                             .add(CreateScore(_controller.text, 0));

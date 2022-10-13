@@ -52,7 +52,7 @@ class LeaderboardProvider {
     final supabase = Supabase.instance.client;
     final prefs = await SharedPreferences.getInstance();
 
-    final username = prefs.getString("username");
+    final username = prefs.getString("nick");
 
     if (username != null) {
       final values = {
@@ -71,7 +71,7 @@ class LeaderboardProvider {
   Future<void> addSotek() async {
     final supabase = Supabase.instance.client;
     final prefs = await SharedPreferences.getInstance();
-    final nick = prefs.getString("username");
+    final nick = prefs.getString("nick");
     if (nick != null) {
       await supabase.rpc('increment', params: {"x": 1, "u": nick}).execute();
     }

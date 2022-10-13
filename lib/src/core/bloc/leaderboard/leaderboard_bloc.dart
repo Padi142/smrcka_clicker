@@ -19,7 +19,7 @@ class LeaderboardBloc extends Bloc<LeaderboardEvent, LeaderboardState> {
   Future<void> _onInitialEvent(
       LoadEvent event, Emitter<LeaderboardState> emit) async {
     final prefs = await SharedPreferences.getInstance();
-    final username = prefs.getString("username");
+    final username = prefs.getString("nick");
 
     final leaderboardList = await leaderboardProvider.loadLeaderboard();
     final userRow = await leaderboardProvider.loadUserRow(username);
