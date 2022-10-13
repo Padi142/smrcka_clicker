@@ -11,8 +11,9 @@ class NickChanger extends StatefulWidget {
   State<NickChanger> createState() => _NickChangerState();
 }
 
+bool usernameEntered = false;
+
 class _NickChangerState extends State<NickChanger> {
-  bool usernameEntered = false;
   final TextEditingController _controller = TextEditingController();
   @override
   void initState() {
@@ -25,42 +26,43 @@ class _NickChangerState extends State<NickChanger> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        SizedBox(
-          width: 100,
-          child: TextField(
-            controller: _controller,
-            decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                filled: true,
-                fillColor: Colors.white,
-                labelText: "Nick:",
-                labelStyle: TextStyle(color: Colors.blueAccent)),
-          ),
-        ),
-        usernameEntered
-            ? Text(
-                "Nick: ${widget.currentNick ?? ""}",
-                style: const TextStyle(color: Colors.white),
-              )
-            : ElevatedButton(
-                onPressed: () async {
-                  if (_controller.text != "" && _controller.text.length < 25) {
-                    final prefs = await SharedPreferences.getInstance();
-                    prefs.setString("username", _controller.text);
-                    if (widget.currentNick != null) {
-                      // ignore: use_build_context_synchronously
-                      BlocProvider.of<LeaderboardBloc>(context)
-                          .add(CreateScore(_controller.text, 0));
+    return usernameEntered
+        ? Text(
+            "Nick: ${widget.currentNick ?? ""}",
+            style: const TextStyle(color: Colors.white, fontSize: 26),
+          )
+        : Row(
+            children: [
+              SizedBox(
+                width: 100,
+                child: TextField(
+                  controller: _controller,
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      filled: true,
+                      fillColor: Colors.white,
+                      labelText: "Nick:",
+                      labelStyle: TextStyle(color: Colors.blueAccent)),
+                ),
+              ),
+              ElevatedButton(
+                  onPressed: () async {
+                    if (_controller.text != "" &&
+                        _controller.text.length < 25) {
+                      final prefs = await SharedPreferences.getInstance();
+                      prefs.setString("nick", _controller.text);
+                      if (widget.currentNick == null) {
+                        // ignore: use_build_context_synchronously
+                        BlocProvider.of<LeaderboardBloc>(context)
+                            .add(CreateScore(_controller.text, 0));
+                      }
+                      setState(() {
+                        usernameEntered = true;
+                      });
                     }
-                    setState(() {
-                      usernameEntered = true;
-                    });
-                  }
-                },
-                child: const Text("Uložit"))
-      ],
-    );
+                  },
+                  child: const Text("Uložit"))
+            ],
+          );
   }
 }
