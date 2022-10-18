@@ -147,6 +147,7 @@ func AddSotek(c *gin.Context) {
 	c.JSON(http.StatusOK, "JO")
 }
 func AddScore(c *gin.Context) {
+	var user User
 
 	username := c.Query("username")
 	clicks := c.Query("clicks")
@@ -154,7 +155,9 @@ func AddScore(c *gin.Context) {
 	query := "SELECT * FROM leaderboard WHERE user_name=?"
 
 	res := db.QueryRow(query, username)
-	if res.Err() != nil {
+	err := res.Scan(&user.Id, &user.User_name, &user.Clicks, &user.Sotek_count, &user.Created_at, &user.Updated_at)
+
+	if err != nil {
 		query2 := `INSERT INTO leaderboard (user_name, clicks) VALUES (?, ?)`
 		// The `Exec` function takes in a query, as well as the values for
 		//     the parameters in the order they are defined
