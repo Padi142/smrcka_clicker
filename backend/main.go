@@ -132,13 +132,28 @@ func AddScore(c *gin.Context) {
 	username := c.Query("username")
 	clicks := c.Query("clicks")
 
-	query2 := "UPDATE leaderboard SET clicks=? WHERE user_name=?"
-	_, err := db.Exec(query2, clicks, username)
-	if err != nil {
-		fmt.Println("(AddScore) db.Exec", err)
-	}
+	query := "SELECT * FROM leaderboard WHERE user_name=?"
 
-	c.JSON(http.StatusOK, "JO")
+	res := db.QueryRow(query, username)
+	if res.Err() != nil {
+		query2 := `INSERT INTO leaderboard (user_name, clicks) VALUES (?, ?)`
+		// The `Exec` function takes in a query, as well as the values for
+		//     the parameters in the order they are defined
+		_, err := db.Exec(query2, username, clicks)
+		if err != nil {
+			fmt.Println("(CreateProduct) db.Exec", err)
+		}
+		c.JSON(http.StatusOK, "JO")
+
+	} else {
+		query3 := "UPDATE leaderboard SET clicks=? WHERE user_name=?"
+		_, err := db.Exec(query3, clicks, username)
+		if err != nil {
+			fmt.Println("(AddScore) db.Exec", err)
+		}
+
+		c.JSON(http.StatusOK, "JO")
+	}
 }
 func GetUser(c *gin.Context) {
 
