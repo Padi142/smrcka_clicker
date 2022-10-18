@@ -10,6 +10,7 @@ import (
 
 	"github.com/joho/godotenv"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
 )
@@ -59,6 +60,13 @@ func main() {
 	// Run the router
 	//port := os.Getenv("PORT")
 	//router.Run("0.0.0.0:" + port)
+	router.Use(cors.New(cors.Config{
+		AllowOrigins:     []string{"*"},
+		AllowMethods:     []string{"GET", "POST"},
+		AllowHeaders:     []string{"Origin"},
+		ExposeHeaders:    []string{"Content-Length"},
+		AllowCredentials: true,
+	}))
 	router.Run()
 
 }
