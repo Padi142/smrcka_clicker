@@ -6,10 +6,11 @@ part 'leaderboard_row_model.g.dart';
 
 @JsonSerializable()
 class LeaderboardRowModel extends Equatable {
-  @JsonKey(name: 'user_name')
+  @JsonKey(name: 'User_name')
   final String username;
+  @JsonKey(name: 'Clicks')
   final int clicks;
-  @JsonKey(name: 'sotek_count')
+  @JsonKey(name: 'Sotek_count')
   final int sotekCount;
 
   const LeaderboardRowModel(

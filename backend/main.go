@@ -53,6 +53,7 @@ func main() {
 	router.GET("/getUser", GetUser)
 	router.GET("/create", Create)
 	router.GET("/addSotek", AddSotek)
+	router.GET("/addScore", AddScore)
 	//router.POST("/products", CreateProduct)
 
 	// Run the router
@@ -122,6 +123,19 @@ func AddSotek(c *gin.Context) {
 	_, err = db.Exec(query2, user.Sotek_count+1, username)
 	if err != nil {
 		fmt.Println("(AddSotek) db.Exec", err)
+	}
+
+	c.JSON(http.StatusOK, "JO")
+}
+func AddScore(c *gin.Context) {
+
+	username := c.Query("username")
+	clicks := c.Query("clicks")
+
+	query2 := "UPDATE leaderboard SET clicks=? WHERE user_name=?"
+	_, err := db.Exec(query2, clicks, username)
+	if err != nil {
+		fmt.Println("(AddScore) db.Exec", err)
 	}
 
 	c.JSON(http.StatusOK, "JO")
