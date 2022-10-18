@@ -85,11 +85,7 @@ class _LeaderboardState extends State<Leaderboard> {
                 NickChanger(
                   currentNick: username,
                 ),
-                const SizedBox(height: 15),
-                const Text(
-                  "Komu se povede dropnout tabulku má u mě pivo v kachně - Padi142",
-                  style: TextStyle(color: Colors.white),
-                ),
+               
                 const SizedBox(height: 50),
               ],
             ),
