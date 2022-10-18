@@ -87,7 +87,7 @@ func HomeHandler(c *gin.Context) {
 }
 func GetUsers(c *gin.Context) {
 
-	query := "SELECT * FROM leaderboard ORDER BY clicks"
+	query := "SELECT * FROM leaderboard ORDER BY clicks DESC"
 
 	res, err := db.QueryContext(c, query)
 	fmt.Println(res)
