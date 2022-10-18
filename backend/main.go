@@ -47,6 +47,7 @@ func main() {
 
 	router := gin.Default()
 	router.SetTrustedProxies(nil)
+	router.Use(CORSMiddleware())
 
 	router.GET("/", HomeHandler)
 	router.GET("/users", GetUsers)
@@ -59,7 +60,6 @@ func main() {
 	// Run the router
 	//port := os.Getenv("PORT")
 	//router.Run("0.0.0.0:" + port)
-	router.Use(CORSMiddleware())
 	router.Run()
 
 }
