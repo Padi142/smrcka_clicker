@@ -95,7 +95,14 @@ class SkinChanger extends StatelessWidget {
               ),
             ],
           ),
-        )
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        const Text("Skiny by: @blil_vodku",
+            style: TextStyle(
+              color: Colors.white,
+            ))
       ],
     );
   }
