@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smrcka_clicker/src/core/bloc/smrcka_bloc/smrcka_bloc.dart';
 import 'package:smrcka_clicker/src/core/model/pet_model.dart';
+import 'package:smrcka_clicker/src/ui/components/skin_button.dart';
 
 class SkinChanger extends StatelessWidget {
   final PetModel pet;
@@ -20,6 +21,18 @@ class SkinChanger extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
+              NewSkinButton(
+                pet: pet,
+                petImg: "assets/images/furrypat.gif",
+                skinImg: "assets/images/furrysmrk.jpg",
+                skinLabel: "Furry Smrčka?!?",
+              ),
+              NewSkinButton(
+                pet: pet,
+                petImg: "assets/images/d.smrckapat.gif",
+                skinImg: "assets/images/D.Smrcka.jpg",
+                skinLabel: "D.va Smrčka",
+              ),
               SkinButton(
                 pet: pet,
                 petImg: "assets/images/pat.gif",
@@ -110,16 +123,19 @@ class SkinButton extends StatelessWidget {
               .add(ChangeSkin(pet, skinImg, petImg));
         },
         child: SizedBox(
+          height: 50,
           child: Container(
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.purpleAccent),
-            child: Padding(
-              padding: const EdgeInsets.all(8),
-              child: Text(
-                skinLabel,
-                style:
-                    const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.all(8),
+                child: Text(
+                  skinLabel,
+                  style: const TextStyle(
+                      fontSize: 22, fontWeight: FontWeight.bold),
+                ),
               ),
             ),
           ),
