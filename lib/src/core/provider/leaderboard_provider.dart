@@ -60,7 +60,7 @@ class LeaderboardProvider {
       final prefs = await SharedPreferences.getInstance();
       final nick = prefs.getString("nick");
       if (nick != null) {
-        await dio.get("$url/addSotek?username$nick");
+        await dio.get("$url/addSotek?username=$nick");
       }
     } catch (e) {
       print(e);

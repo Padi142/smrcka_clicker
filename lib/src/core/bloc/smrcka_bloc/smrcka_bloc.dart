@@ -42,7 +42,7 @@ class SmrckaBloc extends Bloc<SmrckaEvent, SmrckaState> {
     emit(SmrckaState.pet(event.pet));
 
     final int troll = rnd.nextInt(250);
-    if (troll <= 4) {
+    if (troll <= 5) {
       emit(SmrckaState.troll(event.pet));
       await leaderboardProvider.addSotek();
       await leaderboardProvider.addScore(event.pet.pets - 10);
