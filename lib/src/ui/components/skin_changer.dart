@@ -30,7 +30,7 @@ class SkinChanger extends StatelessWidget {
               NewSkinButton(
                 pet: pet,
                 petImg: "assets/images/d.smrckapat.gif",
-                skinImg: "assets/images/D.Smrcka.jpg",
+                skinImg: "assets/images/dvasmrcka.jpg",
                 skinLabel: "D.va Smrčka",
               ),
               SkinButton(
