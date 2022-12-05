@@ -23,15 +23,39 @@ class SkinChanger extends StatelessWidget {
             children: [
               NewSkinButton(
                 pet: pet,
-                petImg: "assets/images/furrypat.gif",
-                skinImg: "assets/images/furrysmrk.jpg",
-                skinLabel: "Furry Smrčka?!?",
+                petImg: "assets/images/smrckasantapat.gif",
+                skinImg: "assets/images/smrckasanta.jpg",
+                skinLabel: "Santa Smrčka",
               ),
               NewSkinButton(
                 pet: pet,
-                petImg: "assets/images/d.smrckapat.gif",
-                skinImg: "assets/images/dvasmrcka.jpg",
-                skinLabel: "D.va Smrčka",
+                petImg: "assets/images/smrckasnehpat.gif",
+                skinImg: "assets/images/smrckasneh.jpg",
+                skinLabel: "Sněhový Smrčka",
+              ),
+              NewSkinButton(
+                pet: pet,
+                petImg: "assets/images/smrckagrinchpat.gif",
+                skinImg: "assets/images/smrckagrinch.jpg",
+                skinLabel: "Smrčka Grinch",
+              ),
+              NewSkinButton(
+                pet: pet,
+                petImg: "assets/images/smrckadeerpat.gif",
+                skinImg: "assets/images/smrckadeer.jpg",
+                skinLabel: "Sobí Smrčka",
+              ),
+              NewSkinButton(
+                pet: pet,
+                petImg: "assets/images/JakcSmrskagtonpat.gif",
+                skinImg: "assets/images/JakcSmrskagton.jpg",
+                skinLabel: "Jack Smrčkagton",
+              ),
+              NewSkinButton(
+                pet: pet,
+                petImg: "assets/images/Legosmrckapat.gif",
+                skinImg: "assets/images/Legosmrcka.jpg",
+                skinLabel: "Lego Smrčka",
               ),
               SkinButton(
                 pet: pet,
@@ -56,6 +80,18 @@ class SkinChanger extends StatelessWidget {
                 petImg: "assets/images/8bitsmrckapat.gif",
                 skinImg: "assets/images/8bitsmrcka.jpg",
                 skinLabel: "8bit Smrčka",
+              ),
+              SkinButton(
+                pet: pet,
+                petImg: "assets/images/furrypat.gif",
+                skinImg: "assets/images/furrysmrk.jpg",
+                skinLabel: "Furry Smrčka?!?",
+              ),
+              SkinButton(
+                pet: pet,
+                petImg: "assets/images/d.smrckapat.gif",
+                skinImg: "assets/images/dvasmrcka.jpg",
+                skinLabel: "D.va Smrčka",
               ),
               SkinButton(
                 pet: pet,

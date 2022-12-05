@@ -30,8 +30,8 @@ class SmrckaBloc extends Bloc<SmrckaEvent, SmrckaState> {
 
     emit(SmrckaState.loaded(PetModel(
         pets: pets,
-        image: "assets/images/smrcka.jpg",
-        petImage: "assets/images/pat.gif",
+        image: "assets/images/smrckasanta.jpg",
+        petImage: "assets/images/smrckasantapat.gif",
         name: "Smrcka")));
   }
 

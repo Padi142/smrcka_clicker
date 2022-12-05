@@ -1,7 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smrcka_clicker/src/core/bloc/leaderboard/leaderboard_bloc.dart';
+import 'package:particles_flutter/particles_flutter.dart';
 import 'package:smrcka_clicker/src/core/bloc/smrcka_bloc/smrcka_bloc.dart';
 import 'package:smrcka_clicker/src/core/bloc/smrcka_bloc/smrcka_state.dart';
 import 'package:smrcka_clicker/src/core/model/pet_model.dart';
@@ -26,21 +26,51 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Scaffold(
-      body: SingleChildScrollView(child: BlocBuilder<SmrckaBloc, SmrckaState>(
-        builder: ((context, state) {
-          return state.maybeWhen(loaded: ((smrcka) {
-            return PetShowPage(pet: smrcka);
-          }), pet: (pet) {
-            return PetPage(
-              pet: pet,
-            );
-          }, troll: (smrcka) {
-            return const TrollBody();
-          }, orElse: (() {
-            return const Loading();
-          }));
-        }),
+    return SafeArea(
+        child: Scaffold(
+      body: SingleChildScrollView(
+          child: Stack(
+        alignment: AlignmentDirectional.topCenter,
+        children: [
+          CircularParticle(
+            key: UniqueKey(),
+            awayRadius: 80,
+            numberOfParticles: 150,
+            speedOfParticles: 1,
+            height: MediaQuery.of(context).size.height,
+
+            width: MediaQuery.of(context).size.width * 0.97,
+
+            onTapAnimation: false,
+            particleColor: Colors.white.withAlpha(150),
+            awayAnimationDuration: Duration(milliseconds: 900),
+            maxParticleSize: 6,
+            isRandSize: true,
+
+            awayAnimationCurve: Curves.easeInOutBack,
+            enableHover: true,
+            hoverColor: Colors.white,
+            hoverRadius: 90,
+            connectDots: false, //not recommended
+
+            isRandomColor: false,
+          ),
+          BlocBuilder<SmrckaBloc, SmrckaState>(
+            builder: ((context, state) {
+              return state.maybeWhen(loaded: ((smrcka) {
+                return PetShowPage(pet: smrcka);
+              }), pet: (pet) {
+                return PetPage(
+                  pet: pet,
+                );
+              }, troll: (smrcka) {
+                return const TrollBody();
+              }, orElse: (() {
+                return const Loading();
+              }));
+            }),
+          ),
+        ],
       )),
     ));
   }
